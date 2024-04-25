@@ -69,8 +69,41 @@ to Github (or whatever your platform of choice). I have included two scripts:
 `symlinks`. However, this script doesn't work with a cronjob, and doesn't create commits or push 
 to Github.
 - `copy-symlinks-auto.sh`: copies the files from the symlinks, and works with a cronjob to push 
-the files to Github.
+the files to Github at whatever schedule you set.
 
+#### 2.1) Setting up an SSH agent
+
+The cronjob, at least for me, really required some hacking to get it to be happy to push to my
+Github. I had to startup an ssh-agent, and then forward that ssh-agents details to the BASH
+script. That way, your SSH details don't get written down anywhere in any of the commands
+or scripts. The SSH agent is responsible for automatically filling in your SSH password whenever 
+a process asks for it, e.g. when we push to the Github repo.
+
+I also made a point of logging the output of the BASH script triggered by the cronjob
+into a log file, makign debugging easier, so use that if it's useful!
+
+To startup an ssh-agent, run:
+```
+eval "$(ssh-agent -s)"
+```
+
+To add an SSH-key to the agent, if you have an RSA key run:
+```
+ssh-add ~/.ssh/id_rsa
+```
+For `id_ed25519` keys run:
+```
+ssh-add ~/.ssh/id_ed25519
+```
+You may have to update the path to wherever your SSH keys are.
+
+
+You can check the SSH agent is running and has your SSH key via:
+```
+ssh-add -l
+```
+
+#### 2.2) Setting up the cron job
 
 To schedule a cronjob, one can use a cronjob command such as:
 ``` 
@@ -80,7 +113,7 @@ with `PATH` equal to the path to this directory, e.g. `/home/username/Config`.
 ```
 0 19 * * *
 ```
-represents that the script should run every evening at 19:00. However, one can schedule the backups
+represents that the script should run every evening at 19:00. However, one can schedule the backup
 to happen at whatever frequency one wishes (the format consists of minute, hour, day of the month,
 month, day of the week, where `*` is a wildcard).
 

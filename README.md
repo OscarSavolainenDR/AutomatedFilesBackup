@@ -139,14 +139,17 @@ of the cronjob command. I.e., remove `> [PATH]/log-file.log 2>&1` from the end o
 
 ## Final Result:
 
+### Local `files` folder:
 In my case, my `files` folder ended up locally looking like this:
 
 ![image](https://github.com/OscarSavolainenDR/AutomatedFilesBackup/assets/119876479/075d5d0e-c59a-431a-9eea-0ed864b46c1a)
 
+### Github:
 And my Github ended up looking like this, with all of my desired files backed up:
 
 ![image](https://github.com/OscarSavolainenDR/AutomatedFilesBackup/assets/119876479/bb2be243-4810-42cf-a780-244576b86ba8)
 
+### Automatic response to changes:
 If I made changes to the original files, the changes would get picked up when the cronjob ran and pushed to Github, 
 with the commit message "Updated files via copy-symlinks.sh". It felt very cool.
 

@@ -57,7 +57,7 @@ done
 git add .
 
 # Commit the changes
-git commit -m "Updated files via copy-symlinks.sh"
+git commit -m "Updated files via copy-symlinks-auto.sh"
 
 # Push
 git push

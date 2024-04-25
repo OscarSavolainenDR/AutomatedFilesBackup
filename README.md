@@ -137,6 +137,8 @@ This cronjob will also log to a file `log-file.log`, and it may be useful for de
 with the cronjob. However, this logging can be disabled by removing the re-direction from the end
 of the cronjob command. I.e., remove `> [PATH]/log-file.log 2>&1` from the end of the command.
 
+## Final Result:
+
 In my case, my `files` folder ended up locally looking like this:
 
 ![image](https://github.com/OscarSavolainenDR/AutomatedFilesBackup/assets/119876479/075d5d0e-c59a-431a-9eea-0ed864b46c1a)

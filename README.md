@@ -28,6 +28,11 @@ git remote add origin ssh-to-your-private-repo
 
 **PLEASE DO NOT push your private files to a public repo.**
 
+## Backing up different files to different repos:
+This is easily done, one just has to set up the same, below process for each subset of files one
+wishes to back up seperately, to seperate Github repos with different cronjob schedules. The
+process for one backup is detailed below.
+
 ## How To Use:
 
 All one has to do is to:

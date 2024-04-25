@@ -17,7 +17,7 @@ time frame one wishes.
 This way, you can edit all of your files inplace, and they get backed up to Github automatically.
 
 ## Important Notice:
-MAKE SURE TO SET YOUR GITHUB REPOSITORY THAT YOU WILL PUSH TO TO PRIVATE. Otherwise you will push 
+**MAKE SURE TO SET YOUR GITHUB REPOSITORY THAT YOU WILL PUSH TO TO PRIVATE.** Otherwise you will push 
 all of your symlinked files to a public repo. I would advice against working in this repository
 directly, and instead to copy over the BASH files and to your own local repo, keeping the `symlinks`
 folder structure. Alternatively, you can fork/clone this repo, and set your origin to your own 
@@ -26,7 +26,7 @@ private repo, e.g.
 git remote add origin ssh-to-your-private-repo
 ```
 
-PLEASE DO NOT push your private files to a public repo.
+**PLEASE DO NOT push your private files to a public repo.**
 
 ## How To Use:
 

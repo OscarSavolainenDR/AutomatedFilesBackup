@@ -65,6 +65,7 @@ ln -s ~/.config/tmux ./config-files/tmux
 You should check that all of your symlinks are working as expected before moving to the next step.
 
 In my case, my `symlinks` folder looked like this:
+
 ![image](https://github.com/OscarSavolainenDR/AutomatedFilesBackup/assets/119876479/4e30e404-3b46-458e-850c-24f7811043da)
 
 
@@ -137,13 +138,16 @@ with the cronjob. However, this logging can be disabled by removing the re-direc
 of the cronjob command. I.e., remove `> [PATH]/log-file.log 2>&1` from the end of the command.
 
 In my case, my `files` folder ended up locally looking like this:
+
 ![image](https://github.com/OscarSavolainenDR/AutomatedFilesBackup/assets/119876479/075d5d0e-c59a-431a-9eea-0ed864b46c1a)
 
 And my Github ended up looking like this, with all of my desired files backed up:
+
 ![image](https://github.com/OscarSavolainenDR/AutomatedFilesBackup/assets/119876479/bb2be243-4810-42cf-a780-244576b86ba8)
 
 If I made changes to the original files, the changes would get picked up when the cronjob ran and pushed to Github, 
 with the commit message "Updated files via copy-symlinks.sh". It felt very cool.
+
 ![image](https://github.com/OscarSavolainenDR/AutomatedFilesBackup/assets/119876479/cf895e9d-687f-4306-b423-7ccbe288e809)
 
 

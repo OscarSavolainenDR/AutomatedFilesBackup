@@ -37,6 +37,7 @@ All one has to do is to:
 One has to add symlinks to whatever files/folders you would like to backup. The symlinks folder 
 can be structured however one wishes, e.g.
 
+```
 +---Folder A
 |   |   Symlink-folder 1
 |   |   Symlinked file 1
@@ -44,6 +45,7 @@ can be structured however one wishes, e.g.
 |           Symlinked file 2
 \---Folder C
         Symlink-folder 2
+```
 
 This structure will be copied over the `files` by the BASH script. This allows one to structure
 the backup directories/files however one wishes.

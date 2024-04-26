@@ -8,7 +8,7 @@ and schedule a cronjob to trigger the backup as often as you want it.
 
 
 The basic idea is to symlink arbitrary files to this directory (specifically in the `symlinks` 
-sub-directory),. The `copy-symlink.sh` BASH script then copies over all of the symlinked 
+sub-directory). The `copy-symlink.sh` BASH script then copies over all of the symlinked 
 files/folders into the `files` sub-directory.  The BASH script then commits all of the new changes
 and pushes it all to Github. 
 One can then set up a cronjob that automatically triggers the `copy-symlink.sh` script at whatever
@@ -92,7 +92,7 @@ or scripts. The SSH agent is responsible for automatically filling in your SSH p
 a process asks for it, e.g. when we push to the Github repo.
 
 I also made a point of logging the output of the BASH script triggered by the cronjob
-into a log file, makign debugging easier, so use that if it's useful!
+into a log file, making debugging easier, so use that if it's useful!
 
 To startup an ssh-agent, run:
 ```

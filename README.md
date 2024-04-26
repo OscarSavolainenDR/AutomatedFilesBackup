@@ -133,7 +133,7 @@ To create a cronjob on Linux, run:
 ```
 crontab -e
 ```
-And add the above line to the end of your file, with whatever tiem schedule you wish. If this is 
+And add the above line to the end of your file, with whatever time schedule you wish. If this is 
 your first time using `crontab`, you will have to select your text editor. Choose your favorite
 text editor, but you can always change it  at anytime afterwards via running `select-editor` and
 choosing again.

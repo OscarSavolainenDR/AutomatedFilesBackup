@@ -37,7 +37,7 @@ find "$source_directory" -type l | while read -r link; do
   # echo "Path we are copying to: $target_directory/$(dirname "$relative_path")"
 
   # Create the corresponding directory structure in the target directory
-  mkdir -p "$target_directory/$(dirname "$relative_path")"
+  mkdir -p "$target_directory/$relative_path"
 
   # If it's a directory
   if [ -d "$file" ]; then 

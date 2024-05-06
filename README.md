@@ -91,8 +91,19 @@ script. That way, your SSH details don't get written down anywhere in any of the
 or scripts. The SSH agent is responsible for automatically filling in your SSH password whenever 
 a process asks for it, e.g. when we push to the Github repo.
 
+However, I would highlky recommend setting up a new SSH key for all automated jobs, that doesn't
+require a password. It'll go much easier.
+
 I also made a point of logging the output of the BASH script triggered by the cronjob
 into a log file, making debugging easier, so use that if it's useful!
+
+To create a new SSH key without a passphrase (**recommended**), run:
+```
+ssh-keygen -t ed25519 -f ~/.ssh/id_ed25519_cronjob -N ""
+```
+You should then add this SSH key to your Github account. 
+I will assume you will be using this SSH key in the cronjob.
+
 
 To startup an ssh-agent, run:
 ```
@@ -119,7 +130,7 @@ ssh-add -l
 
 To schedule a cronjob, one can use a cronjob command such as:
 ``` 
-0 19 * * * git config --global --add safe.directory [PATH]; USER=[YOUR-LINUX-USERNAME] SSH_AUTH_SOCK=$(find /tmp/ssh-* -type s -user [YOUR-LINUX-USERNAME] 2>/dev/null | head -n 1) /bin/bash [PATH]/copy-symlinks-auto.sh > [PATH]/log-file.log 2>&1
+0 19 * * * /bin/bash -c 'export USER=[YOUR-LINUX-USERNAME]; export GIT_SSH_COMMAND="ssh -i ~/.ssh/id_ed25519_cronjob"; git config --global --add safe.directory [PATH]; [PATH]/copy-symlinks.sh > [PATH]/log-file.log 2>&1'
 ```
 with `PATH` equal to the path to this directory, e.g. `/home/username/Config`. 
 ```
